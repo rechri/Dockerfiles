@@ -6,7 +6,6 @@ ARG release_tag=R
 ENV ECLIPSE_TAR=eclipse-java-${release_name}-linux-gtk-x86_64.tar.gz
 ENV ECLIPSE_URL=http://mirror.switch.ch/eclipse/technology/epp/downloads/release/${release_name}/${release_tag}/${ECLIPSE_TAR}
 
-# Use COPY because this will work with local files and remote URLs.
 ADD $ECLIPSE_URL /tmp/
 
 RUN apt-get update && \
