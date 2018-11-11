@@ -1,10 +1,10 @@
-# Firefox on Ubuntu
+# Firefox on Debian
 
-FROM ubuntu:18.10
+FROM debian:stretch-slim
 
 MAINTAINER Reto Christen, CH-6300 Zug
 
-ENV APP_PACKAGES firefox
+ENV APP_PACKAGES firefox-esr
 ENV USER_NAME user
 ENV GID 1000
 ENV UID 1000
@@ -20,4 +20,4 @@ RUN groupadd --gid $GID $USER_NAME && \
 
 USER $USER_NAME
 
-CMD ["/usr/bin/firefox"]
+CMD ["/usr/bin/firefox-esr"]

@@ -1,6 +1,6 @@
-# Thunderbird on Ubuntu
+# Thunderbird on Debian
 
-FROM ubuntu:18.10
+FROM debian:stretch-slim
 
 MAINTAINER Reto Christen, CH-6300 Zug
 

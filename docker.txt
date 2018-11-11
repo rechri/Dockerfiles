@@ -1,0 +1,54 @@
+Docker home
+-----------
+http://www.docker.io/
+
+Install docker
+--------------
+https://docs.docker.com/install/linux/docker-ce/debian/#install-docker-ce
+https://docs.docker.com/install/linux/linux-postinstall/
+
+Fix docker bugs after installation
+----------------------------------
+http://askubuntu.com/questions/350657/lxc-start-failed-to-spawn
+
+Docker commands
+---------------
+sudo docker version					# check which Docker versions are running
+sudo docker search ubuntu				# search the central index for an image
+sudo docker pull learn/tutorial				# download a container image from the central index
+sudo docker run  learn/tutorial echo "hello world"	# run 'echo' in the container
+
+sudo docker run ubuntu apt-get install -y ping		# install a simple program (ping) in the container
+sudo docker ps -l					# find the ID of the container you created by installing ping
+sudo docker commit 698 learn/ping			# save the difference between the old image and the new state
+sudo docker run learn/ping ping google.com		# run a command on the new image
+
+sudo docker ps						# see a list of all running containers
+sudo docker inspect efe					# see all sorts of useful information about this container
+
+sudo docker images					# shows you which images are currently on your host
+sudo docker push learn/ping				# push (upload) image to the central index
+
+sudo docker run -i -t ubuntu:quantal /bin/bash		# start command line. use exit to exit
+
+
+Install Java
+------------
+https://index.docker.io/u/alexismp/debian-openjdk/
+https://index.docker.io/u/lukasz/docker-scala/
+http://blogs.atlassian.com/2013/06/deploy-java-apps-with-docker-awesome/
+http://blog.trifork.com/2013/08/15/using-docker-to-efficiently-create-multiple-tomcat-instances/
+
+sudo docker run -i -t -privileged=true ubuntu:quantal /bin/bash
+apt-get update && apt-get upgrade
+apt-get install software-properties-common
+apt-get install openjdk-7-jre
+
+
+Miscellaneous
+-------------
+cat /etc/lsb-release	# lists Linux installation infos
+
+
+
+

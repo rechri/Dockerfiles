@@ -1,10 +1,10 @@
-# Eclipse IDE for Java Developers
+# IntelliJ IDEA
 
 FROM openjdk:8
 
-ENV APP_VERSION=2018-09
-ENV APP_DOWNLOAD_URL=http://ftp-stud.fht-esslingen.de/pub/Mirrors/eclipse/technology/epp/downloads/release/${APP_VERSION}/R/eclipse-java-${APP_VERSION}-linux-gtk-x86_64.tar.gz
-ENV APP_PACKAGE=app.tar.gz
+ENV APP_VERSION=2018.2.5
+ENV APP_DOWNLOAD_URL=https://download-cf.jetbrains.com/idea/ideaIC-${APP_VERSION}.tar.gz
+ENV APP_PACKAGE=ideaIC.tar.gz
 ENV USER_NAME user
 ENV GID 1000
 ENV UID 1000
@@ -19,9 +19,9 @@ RUN apt-get update && \
 
 RUN groupadd --gid $GID $USER_NAME && \
     useradd --uid $UID --gid $GID --create-home $USER_NAME && \
-    mkdir /home/user/eclipse-workspace && \
-    chown user:user /home/user/eclipse-workspace
+    mkdir /home/user/IdeaProjects && \
+    chown user:user /home/user/IdeaProjects
 
 USER $USER_NAME
 
-ENTRYPOINT ["/opt/eclipse/eclipse"]
+ENTRYPOINT ["/opt/idea-IC-182.4892.20/bin/idea.sh"]
